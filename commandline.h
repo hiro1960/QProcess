@@ -24,6 +24,7 @@ private slots:
 
 public:
     void onCommand( QString cmdline );
+    void waitRead();
 
 };
 

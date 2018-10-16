@@ -7,8 +7,10 @@ int main(int argc, char *argv[])
 
     commandline exec;
 
-//    exec.onCommand("helloworld.exe");
+    exec.onCommand("helloworld.exe");
+    exec.waitRead();    // 終了を待つ
     exec.onCommand("test.bat");
+    exec.waitRead();    // 終了を待つ
 
 //    return a.exec();
     return 0;

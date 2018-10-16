@@ -18,6 +18,7 @@ void commandline::onCommand(QString cmdline)
 {
     killProcess();
 
+    qDebug() << "cmd : " << cmdline;
     process->start(cmdline);
     if (!process->waitForStarted()) {
         qWarning() << process->errorString();
@@ -54,4 +55,12 @@ void commandline::onProcessStderr()
 
     QByteArray arr = process->readAllStandardError();
     qDebug() << QString::fromLocal8Bit(arr);
+}
+
+void commandline::waitRead()
+{
+    while ( process->state() == QProcess::Running )
+    {
+        process->waitForReadyRead( 100 );   // 100msでloop
+    }
 }
