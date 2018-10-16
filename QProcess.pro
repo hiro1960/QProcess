@@ -20,3 +20,6 @@ SOURCES += \
 
 HEADERS += \
     commandline.h
+
+DISTFILES += \
+    README.md
